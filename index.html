@@ -76,6 +76,23 @@
   </nav>
 
 <script>
+  const triggers = document.querySelectorAll(".cool > li"); // all direct descendants of element with class of cool
+  const background = document.querySelector(".dropdownBackground");
+  const nav = document.querySelector(".top");
+
+  function handleEnter() {
+    this.classList.add("trigger-enter");
+    setTimeout( () => this.classList.add("trigger-enter-active"), 150);
+  }
+
+  function handleLeave() {
+    this.classList.remove("trigger-enter", "trigger-enter-active");
+  }
+
+  // listen for mouse enter and mouse leave on each list item
+  triggers.forEach(trigger => trigger.addEventListener("mouseenter", handleEnter));
+  triggers.forEach(trigger => trigger.addEventListener("mouseleave", handleLeave));
+
 </script>
 
 </body>
